@@ -29,7 +29,7 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
                 BackdropComponent={Backdrop}
                 BackdropProps={{
                 timeout: 300,
-                }}>
+            }}>
                 <Fade in={open}>
                     <Paper>
                         <EducationModalContent/>    

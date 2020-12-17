@@ -1,18 +1,17 @@
 import React, {FunctionComponent, useState} from 'react';
 import EducationSidebar from './education/EducationSidebar';
 import EducationList from './education/EducationList';
-import EducationModalContent from './education/EducationModalContent';
+import EducationModal from './education/EducationModalContent';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import Paper from '@material-ui/core/Paper';
 
 const Main:FunctionComponent<{name: string}> = ({name}) => {
     const [open, setOpen] = useState(false)
-
     const handleOpen = () => {
         setOpen(true);
     }
+
     const handleClose = () => {
         setOpen(false);
     }
@@ -21,24 +20,18 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
         <div>
             <h4>Welcome to {name}'s education page.</h4>
             <button type="button" onClick={handleOpen}>Add New Education</button>
-            <Modal aria-labelledby="add-education"
-                aria-describedby="add-education-modal"
-                open={open}
-                onClose={handleClose}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                timeout: 300,
-                }}>
-                <Fade in={open}>
-                    <Paper>
-                        <EducationModalContent/>    
-                    </Paper>
-                </Fade>
-            </Modal>
+            <Modal aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }} />
             <EducationSidebar/> 
             <EducationList/>
-           
+            <EducationModal/>
         </div>
     )
 }

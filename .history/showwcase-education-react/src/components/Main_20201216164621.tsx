@@ -21,14 +21,14 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
         <div>
             <h4>Welcome to {name}'s education page.</h4>
             <button type="button" onClick={handleOpen}>Add New Education</button>
-            <Modal aria-labelledby="add-education"
+            <Modal aria-labelledby="transition-modal-title"
                 aria-describedby="add-education-modal"
                 open={open}
                 onClose={handleClose}
                 closeAfterTransition
                 BackdropComponent={Backdrop}
                 BackdropProps={{
-                timeout: 300,
+                timeout: 500,
                 }}>
                 <Fade in={open}>
                     <Paper>

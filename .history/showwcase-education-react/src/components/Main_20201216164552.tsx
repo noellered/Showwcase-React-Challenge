@@ -9,10 +9,10 @@ import Paper from '@material-ui/core/Paper';
 
 const Main:FunctionComponent<{name: string}> = ({name}) => {
     const [open, setOpen] = useState(false)
-
     const handleOpen = () => {
         setOpen(true);
     }
+
     const handleClose = () => {
         setOpen(false);
     }
@@ -21,19 +21,20 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
         <div>
             <h4>Welcome to {name}'s education page.</h4>
             <button type="button" onClick={handleOpen}>Add New Education</button>
-            <Modal aria-labelledby="add-education"
-                aria-describedby="add-education-modal"
+            <Modal aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
                 open={open}
                 onClose={handleClose}
                 closeAfterTransition
                 BackdropComponent={Backdrop}
                 BackdropProps={{
-                timeout: 300,
+                timeout: 500,
                 }}>
                 <Fade in={open}>
                     <Paper>
                         <EducationModalContent/>    
                     </Paper>
+                    
                 </Fade>
             </Modal>
             <EducationSidebar/> 

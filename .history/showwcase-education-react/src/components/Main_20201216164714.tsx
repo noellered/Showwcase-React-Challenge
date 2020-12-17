@@ -28,7 +28,7 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
                 closeAfterTransition
                 BackdropComponent={Backdrop}
                 BackdropProps={{
-                timeout: 300,
+                timeout: 200,
                 }}>
                 <Fade in={open}>
                     <Paper>
