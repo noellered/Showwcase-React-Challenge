@@ -5,8 +5,8 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { VariableSizeList, ListChildComponentProps } from 'react-window';
-import MonthPicker from '../pickers/MonthPicker';
-import YearPicker from '../pickers/YearPicker';
+import MonthPicker from '../atoms/MonthPicker';
+import YearPicker from '../atoms/YearPicker';
 
 //Virtualize institution list for more efficient rendering performance
 
@@ -117,6 +117,8 @@ const EducationModal = () => {
         getInstitutions()
     }, []);
 
+    const OPTIONS = institutionList;
+
     const renderGroup = (params: AutocompleteRenderGroupParams) => [
         <ListSubheader key={params.key} component="div">
           {params.group}
@@ -126,8 +128,7 @@ const EducationModal = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        //TODO 
-        //set values to selected & save
+        //set values to selected
     }
 
 
@@ -137,9 +138,9 @@ const EducationModal = () => {
             <form onSubmit={handleSubmit}>
                 <Autocomplete 
                 id="institutions-list" 
-                options={institutionList} 
+                options={OPTIONS} 
                 freeSolo 
-                renderGroup={renderGroup}
+                renderGroup = {renderGroup}
                 renderInput={(params)=>(
                     <TextField {...params} label="Enter your institution" margin="normal" variant="outlined" />
                 )}

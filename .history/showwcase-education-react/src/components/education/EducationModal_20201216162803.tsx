@@ -5,8 +5,8 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { VariableSizeList, ListChildComponentProps } from 'react-window';
-import MonthPicker from '../pickers/MonthPicker';
-import YearPicker from '../pickers/YearPicker';
+import MonthPicker from '../atoms/MonthPicker';
+import YearPicker from '../atoms/YearPicker';
 
 //Virtualize institution list for more efficient rendering performance
 
@@ -106,11 +106,7 @@ const EducationModal = () => {
         year: new Date().getFullYear()
     });
 
-    const getInstitutions = () => {
-        fetch(`http://universities.hipolabs.com/search`)
-        .then((res: any) => res.json()
-        .then((JSON) => setInstitutionList(JSON.map((item)=>item['name']))));
-    }
+    
 
     // Get institutions list on component mount
     useEffect( () => {
@@ -126,8 +122,7 @@ const EducationModal = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        //TODO 
-        //set values to selected & save
+        //set values to selected
     }
 
 

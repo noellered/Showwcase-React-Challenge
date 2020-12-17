@@ -5,8 +5,8 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { VariableSizeList, ListChildComponentProps } from 'react-window';
-import MonthPicker from '../pickers/MonthPicker';
-import YearPicker from '../pickers/YearPicker';
+import MonthPicker from '../atoms/MonthPicker';
+import YearPicker from '../atoms/YearPicker';
 
 //Virtualize institution list for more efficient rendering performance
 
@@ -93,18 +93,9 @@ function useResetCache(data: any) {
 //Add Education Modal Content
 const EducationModal = () => {
     const [institutionList, setInstitutionList] = useState<string[]>([]);
-    
-    //Education Start Month/Year
-    const [start, setStart] = useState<{month: string, year: number}>({
-        month: '',
-        year: new Date().getFullYear()
-    });
-
-    //Education End Month/Year
-    const [end, setEnd] = useState({
-        month: '',
-        year: new Date().getFullYear()
-    });
+    const [startYear, setStartYear] = useState<Date>(new Date());
+    const [startMonth, setStartMonth] = useState('');
+    const [endYear, setEndYear]
 
     const getInstitutions = () => {
         fetch(`http://universities.hipolabs.com/search`)
@@ -117,6 +108,8 @@ const EducationModal = () => {
         getInstitutions()
     }, []);
 
+    const OPTIONS = institutionList;
+
     const renderGroup = (params: AutocompleteRenderGroupParams) => [
         <ListSubheader key={params.key} component="div">
           {params.group}
@@ -126,8 +119,6 @@ const EducationModal = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        //TODO 
-        //set values to selected & save
     }
 
 
@@ -135,25 +126,25 @@ const EducationModal = () => {
         <div>
             <h2>Add New Education</h2>
             <form onSubmit={handleSubmit}>
-                <Autocomplete 
-                id="institutions-list" 
-                options={institutionList} 
-                freeSolo 
-                renderGroup={renderGroup}
-                renderInput={(params)=>(
-                    <TextField {...params} label="Enter your institution" margin="normal" variant="outlined" />
-                )}
-                renderOption={(option) => <p>{option}</p>}
-                ListboxComponent={ListboxComponent as React.ComponentType<React.HTMLAttributes<HTMLElement>>}
-                disableListWrap
-                autoSelect={true}
-                />
-                <div>
-                    <MonthPicker label="Start Month" id="startMonth"/>
-                    <MonthPicker label="End Month" id="endMonth"/>
-                    <YearPicker label="Start Year" id="startYear"/>
-                    <YearPicker label="End Year (or expected)" id="endYear"/>
-                </div>
+            <Autocomplete 
+            id="institutions-list" 
+            options={OPTIONS} 
+            freeSolo 
+            renderGroup = {renderGroup}
+            renderInput={(params)=>(
+                <TextField {...params} label="Enter your institution" margin="normal" variant="outlined" />
+            )}
+            renderOption={(option) => <p>{option}</p>}
+            ListboxComponent={ListboxComponent as React.ComponentType<React.HTMLAttributes<HTMLElement>>}
+            disableListWrap
+            autoSelect={true}
+            />
+            <div>
+                <MonthPicker label="Start Month" id="startMonth"/>
+                <MonthPicker label="End Month" id="endMonth"/>
+                <YearPicker label="Start Year" id="startYear"/>
+                <YearPicker label="End Year (or expected)" id="endYear"/>
+            </div>
             </form>
         </div>
     )
