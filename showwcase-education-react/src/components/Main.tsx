@@ -6,10 +6,15 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
+import { pageStyles } from './pageStyles';
 
 const Main:FunctionComponent<{name: string}> = ({name}) => {
-    const [open, setOpen] = useState<boolean>(false)
-    const [education, setEducation] = useState<object[]>([])
+    const classes = pageStyles();
+    const [open, setOpen] = useState<boolean>(false);
+    const [education, setEducation] = useState<object[]>([]);
 
     const handleOpen = () => {
         setOpen(true);
@@ -25,11 +30,17 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
     }
 
     return(
-        <div>
+        <Container>
             <h4>Welcome to {name}'s education page.</h4>
-            <button type="button" onClick={handleOpen}>Add New Education</button>            
-            <EducationSidebar/> 
-            <EducationList/>
+            <Button className={classes.button} type="button" onClick={handleOpen}>Add New Education</Button>            
+            <Grid container>
+                <Grid item xs={12} lg={3}>
+                    <EducationSidebar list={education}/> 
+                </Grid>
+                <Grid item xs={12} lg={9}>
+                    <EducationList list={education}/>
+                </Grid>
+            </Grid>
             <Modal aria-labelledby="add-education"
                 aria-describedby="add-education-modal"
                 open={open}
@@ -45,8 +56,7 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
                     </Paper>
                 </Fade>
             </Modal>
-           
-        </div>
+        </Container>
     )
 }
 

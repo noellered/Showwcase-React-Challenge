@@ -8,6 +8,7 @@ import { VariableSizeList, ListChildComponentProps } from 'react-window';
 import MonthPicker from '../pickers/MonthPicker';
 import YearPicker from '../pickers/YearPicker';
 
+
 //Virtualize institution list for more efficient rendering performance
 
 const LISTBOX_PADDING = 8; // px
@@ -95,6 +96,7 @@ const EducationModalContent:FunctionComponent<{handleUpdate: any}>= ({ handleUpd
     const [institutionList, setInstitutionList] = useState<string[]>([]);
     const [institution, setInstitution] = useState<string>('');
     const [degree, setDegree] = useState<string>('');
+    const [description, setDescription] = useState<string>('');
     const [fieldOfStudy, setFieldOfStudy] = useState<string>('');
     const [start, setStart] = useState<{month: number, year: number}>({
         month: new Date().getMonth(),
@@ -130,7 +132,7 @@ const EducationModalContent:FunctionComponent<{handleUpdate: any}>= ({ handleUpd
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        const newEducation = { institution, fieldOfStudy, degree, start, end }
+        const newEducation = { institution, fieldOfStudy, degree, start, end, description }
         return handleUpdate(newEducation);
     }
 
@@ -160,6 +162,8 @@ const EducationModalContent:FunctionComponent<{handleUpdate: any}>= ({ handleUpd
                 />
                 <TextField label="Degree" variant="outlined" onChange={(e)=> setDegree(e.target.value)} required/>
                 <TextField label="Field of Study" variant="outlined" onChange={(e)=> setFieldOfStudy(e.target.value)}/>
+                <TextField multiline fullWidth rows={2} variant="outlined" label="Description" onChange={(e)=> setDescription(e.target.value)}/>
+                
                 <div style={{display: 'flex'}}>
                     <MonthPicker label="Start Month" id="startMonth" onChange={(e)=> setStart({...start, month: e.target.value})}/>
                     <MonthPicker label="End Month" id="endMonth" onChange={(e)=> setEnd({...end, month: e.target.value})}/>
