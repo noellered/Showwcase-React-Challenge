@@ -17,7 +17,7 @@ const Home:FunctionComponent<{setName?: any}> = ({setName}) => {
       };
 
     return(
-        <Box mt={10}>
+        <Box mt={10} color>
             <Grid container alignContent="center" alignItems="center" xs={12} spacing={2}>
                 <Grid item xs={12}>
                     <Typography variant="h6" color="primary" gutterBottom>Hi there! Welcome to your education showcase.</Typography>

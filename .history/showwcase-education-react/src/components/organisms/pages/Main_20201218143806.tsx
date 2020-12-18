@@ -39,9 +39,20 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
         <Container>
             <Grid container alignContent="center" className={classes.header} spacing={1}>
                 <Grid item xs={12}>
-                    <Typography variant="h6" color="primary">Welcome to {name}'s education page.</Typography>
+                    <Typography variant="h6" color="textPrimary">Welcome to {name}'s education page.</Typography>
                 </Grid>
-               
+                <Grid item xs={12}>
+                    <Button 
+                        className={classes.button} 
+                        variant="contained" 
+                        color="primary" 
+                        type="button" 
+                        size="small"
+                        onClick={handleOpen}
+                        >
+                        Add New Education
+                    </Button> 
+                </Grid>  
             </Grid>         
             <Grid container className={classes.container} spacing={2}>
                 <Grid item xs={12} lg={3}>
@@ -50,24 +61,10 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
                     </Paper>
                 </Grid>
                 <Grid item xs={12} lg={9}>
-                    <Paper className={`${classes.paper} ${classes.listBox}`} variant="outlined">
+                    <Paper className={classes.paper} variant="outlined">
                         <EducationList list={education} buttonHandler={handleOpen}/>
                     </Paper>
                 </Grid>
-                {education.length > 0 ? 
-                 <Grid item xs={12}>
-                 <Button 
-                     className={classes.button} 
-                     variant="contained" 
-                     color="primary" 
-                     type="button" 
-                     size="small"
-                     onClick={handleOpen}
-                     >
-                     + Add New Education
-                 </Button> 
-                </Grid>  : <></>
-                }
             </Grid>
             <Modal 
                 className={classes.modal} 

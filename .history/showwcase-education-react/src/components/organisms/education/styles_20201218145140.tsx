@@ -48,7 +48,7 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
         alignItems: 'center',
         height: '100%',
-        padding: '1rem'
+        padding: ''
     },
     header: {
         marginBottom: '1rem'

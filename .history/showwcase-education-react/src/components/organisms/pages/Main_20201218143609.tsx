@@ -16,7 +16,48 @@ Holds list of all education experience and adds new education experience to begi
 const Main:FunctionComponent<{name: string}> = ({name}) => {
     const classes = pageStyles();
     const [open, setOpen] = useState<boolean>(false);
-    const [education, setEducation] = useState<object[]>([]);
+    const [education, setEducation] = useState<object[]>([
+        {
+            gpa: 3.8,
+            degree: "MFA.",
+            description: "",
+            end: {month: 11, year: 2020},
+            fieldOfStudy: "Being Cool",
+            institution: "Triton University",
+            start: {month: 11, year: 2020},
+            current: true
+        },
+        {
+            gpa: 4.0,
+            degree: "M.Sc.",
+            description: "",
+            end: {month: 11, year: 2020},
+            fieldOfStudy: "Biology of Aliens",
+            institution: "Roswell University",
+            start: {month: 11, year: 2020},
+            current: false
+        },
+        {   
+            gpa: 3.75,
+            degree: "B.S.",
+            description: "I learned things, and stuff. Then I learned how to be a pirate. Arrrr, matey.",
+            end: {month: 11, year: 2020},
+            fieldOfStudy: "Pirate Studies",
+            institution: "Somalia University",
+            start: {month: 11, year: 2020},
+            current: false
+        },
+        {
+            gpa: 3.5,
+            degree: "B.A.",
+            description: "",
+            end: {month: 11, year: 2020},
+            fieldOfStudy: "Home Economics",
+            institution: "University of Bakersfield",
+            start: {month: 11, year: 2020},
+            current: false
+        },
+    ]);
     
 
     //Modal handlers
@@ -34,14 +75,24 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
         handleClose();
     }
 
-
     return(
         <Container>
             <Grid container alignContent="center" className={classes.header} spacing={1}>
                 <Grid item xs={12}>
-                    <Typography variant="h6" color="primary">Welcome to {name}'s education page.</Typography>
+                    <Typography variant="h6" color="textPrimary">Welcome to {name}'s education page.</Typography>
                 </Grid>
-               
+                <Grid item xs={12}>
+                    <Button 
+                        className={classes.button} 
+                        variant="contained" 
+                        color="primary" 
+                        type="button" 
+                        size="small"
+                        onClick={handleOpen}
+                        >
+                        Add New Education
+                    </Button> 
+                </Grid>  
             </Grid>         
             <Grid container className={classes.container} spacing={2}>
                 <Grid item xs={12} lg={3}>
@@ -50,24 +101,10 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
                     </Paper>
                 </Grid>
                 <Grid item xs={12} lg={9}>
-                    <Paper className={`${classes.paper} ${classes.listBox}`} variant="outlined">
+                    <Paper className={classes.paper} variant="outlined">
                         <EducationList list={education} buttonHandler={handleOpen}/>
                     </Paper>
                 </Grid>
-                {education.length > 0 ? 
-                 <Grid item xs={12}>
-                 <Button 
-                     className={classes.button} 
-                     variant="contained" 
-                     color="primary" 
-                     type="button" 
-                     size="small"
-                     onClick={handleOpen}
-                     >
-                     + Add New Education
-                 </Button> 
-                </Grid>  : <></>
-                }
             </Grid>
             <Modal 
                 className={classes.modal} 

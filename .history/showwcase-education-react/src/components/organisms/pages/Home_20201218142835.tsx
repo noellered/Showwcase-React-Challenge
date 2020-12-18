@@ -17,8 +17,8 @@ const Home:FunctionComponent<{setName?: any}> = ({setName}) => {
       };
 
     return(
-        <Box mt={10}>
-            <Grid container alignContent="center" alignItems="center" xs={12} spacing={2}>
+        <Box m>
+            <Grid className={classes.homeContainer} container alignContent="center" alignItems="center" xs={12} spacing={2}>
                 <Grid item xs={12}>
                     <Typography variant="h6" color="primary" gutterBottom>Hi there! Welcome to your education showcase.</Typography>
                     <Typography variant="body1" >Type your name and click "Enter" below to begin!</Typography>

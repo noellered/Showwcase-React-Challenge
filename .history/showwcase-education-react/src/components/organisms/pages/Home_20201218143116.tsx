@@ -18,6 +18,7 @@ const Home:FunctionComponent<{setName?: any}> = ({setName}) => {
 
     return(
         <Box mt={10}>
+            <Paper>
             <Grid container alignContent="center" alignItems="center" xs={12} spacing={2}>
                 <Grid item xs={12}>
                     <Typography variant="h6" color="primary" gutterBottom>Hi there! Welcome to your education showcase.</Typography>
@@ -34,6 +35,7 @@ const Home:FunctionComponent<{setName?: any}> = ({setName}) => {
                 <Button className={classes.button} size="large" variant="contained" color="primary" type="submit">Enter</Button>
             </Grid>
             </Grid>
+            </Paper>
         </Box>
     )
 

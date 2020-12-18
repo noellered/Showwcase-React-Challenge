@@ -61,6 +61,7 @@ export const pageStyles = makeStyles({
     },
     listBox: {
         height: '100%',
+        padding: '3rem',
         '@media (min-width: 1280px)' : {
             height: '75vh',
         }

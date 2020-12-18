@@ -35,12 +35,8 @@ const InfoCard:FunctionComponent<{item: object}> = ({ item }) => {
                         {item['degree']} {item['fieldOfStudy']} @ {item['institution']}
                     </Typography>
                 </Grid>
-                {item['gpa'] ?  
-                    <Grid item lg={3} md={2}>
-                        <Typography variant="subtitle2" align="right">{item['gpa']} GPA</Typography>
-                    </Grid> : <></>
-                }
-        
+                {item['gpa'] ? }
+               
             </Grid>
             <Grid item lg={12}>
                 <Typography variant="subtitle1" align="justify" color="textSecondary" gutterBottom>

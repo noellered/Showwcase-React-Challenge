@@ -50,7 +50,7 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
                     </Paper>
                 </Grid>
                 <Grid item xs={12} lg={9}>
-                    <Paper className={`${classes.paper} ${classes.listBox}`} variant="outlined">
+                    <Paper className={`${classes.paper} ${classes.sideBar}`} variant="outlined">
                         <EducationList list={education} buttonHandler={handleOpen}/>
                     </Paper>
                 </Grid>
