@@ -27,8 +27,6 @@ const Home:FunctionComponent<{setName?: any}> = ({setName}) => {
                     <Typography variant="body1" >Type your name and click "Enter" below to begin!</Typography>
                 </Grid>
                 <Grid item xs={12}>
-                <SchoolRoundedIcon color="action" fontSize="large"/> 
-
                 </Grid>
         
                 <Grid item xs={12}>

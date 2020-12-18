@@ -1,8 +1,6 @@
 import React, { useState, FunctionComponent } from 'react';
 import { pageStyles } from './pageStyles';
 import { Box, TextField, Button, Typography, Grid } from '@material-ui/core';
-import SchoolRoundedIcon from '@material-ui/icons/SchoolRounded';
-
 
 /* 
 HOME PAGE
@@ -27,10 +25,7 @@ const Home:FunctionComponent<{setName?: any}> = ({setName}) => {
                     <Typography variant="body1" >Type your name and click "Enter" below to begin!</Typography>
                 </Grid>
                 <Grid item xs={12}>
-                <SchoolRoundedIcon color="action" fontSize="large"/> 
-
                 </Grid>
-        
                 <Grid item xs={12}>
                     <form onSubmit={handleSubmit}>
                         <TextField placeholder="Your name" variant="outlined" onChange={(e) => setUserInput(e.target.value)} required />

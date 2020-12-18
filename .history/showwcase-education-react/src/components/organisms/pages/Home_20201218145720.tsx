@@ -23,14 +23,12 @@ const Home:FunctionComponent<{setName?: any}> = ({setName}) => {
         <Box mt={10}>
             <Grid container alignContent="center" alignItems="center" xs={12} spacing={2}>
                 <Grid item xs={12}>
+                    <SchoolRoundedIcon color="primary"/> 
                     <Typography variant="h6" color="primary" gutterBottom>Hi there! Welcome to your education showcase.</Typography>
                     <Typography variant="body1" >Type your name and click "Enter" below to begin!</Typography>
                 </Grid>
                 <Grid item xs={12}>
-                <SchoolRoundedIcon color="action" fontSize="large"/> 
-
                 </Grid>
-        
                 <Grid item xs={12}>
                     <form onSubmit={handleSubmit}>
                         <TextField placeholder="Your name" variant="outlined" onChange={(e) => setUserInput(e.target.value)} required />

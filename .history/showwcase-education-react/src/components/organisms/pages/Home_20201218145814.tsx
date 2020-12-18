@@ -27,10 +27,9 @@ const Home:FunctionComponent<{setName?: any}> = ({setName}) => {
                     <Typography variant="body1" >Type your name and click "Enter" below to begin!</Typography>
                 </Grid>
                 <Grid item xs={12}>
-                <SchoolRoundedIcon color="action" fontSize="large"/> 
-
                 </Grid>
-        
+                <SchoolRoundedIcon color="primary"/> 
+
                 <Grid item xs={12}>
                     <form onSubmit={handleSubmit}>
                         <TextField placeholder="Your name" variant="outlined" onChange={(e) => setUserInput(e.target.value)} required />
