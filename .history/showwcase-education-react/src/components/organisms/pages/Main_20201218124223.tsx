@@ -100,6 +100,7 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
                     </Paper>
                 </Grid>
             </Grid>
+            <Grid container xs={10} lg={9} alignItems="center" justify="center"></Grid>
             <Modal 
                 className={classes.modal} 
                 aria-labelledby="add-education"
@@ -112,9 +113,11 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
                 timeout: 300,
                 }}>
                 <Fade in={open}>
-                    <Paper className={`${classes.modalPaper}`}>
-                        <EducationModalContent handleUpdate={handleEducationUpdate}/>    
-                    </Paper>
+                    
+                        <Paper className={`${classes.modal}`}>
+                            <EducationModalContent handleUpdate={handleEducationUpdate}/>    
+                        </Paper>
+                    </Grid>
                 </Fade>
             </Modal>
         </Container>

@@ -111,7 +111,7 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
                 BackdropProps={{
                 timeout: 300,
                 }}>
-                <Fade in={open}>
+            <Fade in={open}>
                     <Paper className={`${classes.modalPaper}`}>
                         <EducationModalContent handleUpdate={handleEducationUpdate}/>    
                     </Paper>

@@ -100,23 +100,27 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
                     </Paper>
                 </Grid>
             </Grid>
-            <Modal 
-                className={classes.modal} 
-                aria-labelledby="add-education"
-                aria-describedby="add-education-modal"
-                open={open}
-                onClose={handleClose}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                timeout: 300,
-                }}>
-                <Fade in={open}>
-                    <Paper className={`${classes.modalPaper}`}>
-                        <EducationModalContent handleUpdate={handleEducationUpdate}/>    
-                    </Paper>
-                </Fade>
-            </Modal>
+            <Grid contaiitemner xs={10} lg={9} alignItems="center" justify="center">
+                <Modal 
+                    className={classes.modal} 
+                    aria-labelledby="add-education"
+                    aria-describedby="add-education-modal"
+                    open={open}
+                    onClose={handleClose}
+                    closeAfterTransition
+                    BackdropComponent={Backdrop}
+                    BackdropProps={{
+                    timeout: 300,
+                    }}>
+                    <Fade in={open}>
+                        
+                            <Paper className={`${classes.modal}`}>
+                                <EducationModalContent handleUpdate={handleEducationUpdate}/>    
+                            </Paper>
+                        
+                    </Fade>
+                </Modal>
+            </Grid>
         </Container>
     )
 }

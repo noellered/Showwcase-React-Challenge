@@ -4,7 +4,7 @@ export const pageStyles = makeStyles({
     modal: {
         maxWidth: '90%',
         margin: 'auto',
-        marginTop: '4rem',
+        marginTop: ''
         minHeight: '70vh',
         "&:focus": {
             outline: "none"

@@ -57,7 +57,7 @@ const EducationModalContent:FunctionComponent<{handleUpdate: any }>= ({ handleUp
 
 
     return(
-        <Grid container className={classes.modalContent}>
+        <Grid container lg={10} className={classes.modalContent}>
             <Typography variant="h6" color="primary">Add New Education</Typography>
             <form onSubmit={handleSubmit}>
 

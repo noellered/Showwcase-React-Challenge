@@ -57,7 +57,7 @@ const EducationModalContent:FunctionComponent<{handleUpdate: any }>= ({ handleUp
 
 
     return(
-        <Grid container className={classes.modalContent}>
+        <Grid className={classes.modalContent}>
             <Typography variant="h6" color="primary">Add New Education</Typography>
             <form onSubmit={handleSubmit}>
 
@@ -90,7 +90,7 @@ const EducationModalContent:FunctionComponent<{handleUpdate: any }>= ({ handleUp
               
                 <Button variant="contained" className={classes.button} color="primary" type="submit" >Save</Button>
             </form>
-        </Grid>
+        </div>
     )
 }
 export default EducationModalContent;

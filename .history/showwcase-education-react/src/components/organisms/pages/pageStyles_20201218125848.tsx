@@ -2,17 +2,14 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const pageStyles = makeStyles({
     modal: {
-        maxWidth: '90%',
+        minWidth: '70%',
         margin: 'auto',
-        marginTop: '4rem',
         minHeight: '70vh',
         "&:focus": {
             outline: "none"
         }
     },
-    modalContainer: {
-        margin: 'auto'
-    },
+    modalContainer: {},
     header: {
         marginTop: '2rem',
         marginBottom: '1rem'

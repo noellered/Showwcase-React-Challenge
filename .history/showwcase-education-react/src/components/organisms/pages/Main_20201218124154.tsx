@@ -112,9 +112,13 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
                 timeout: 300,
                 }}>
                 <Fade in={open}>
-                    <Paper className={`${classes.modalPaper}`}>
-                        <EducationModalContent handleUpdate={handleEducationUpdate}/>    
-                    </Paper>
+                    <Grid container xs={10} lg={9} alignItems="center" justify="center">
+                        <Grid>
+                        <Paper className={`${classes.modal}`}>
+                            <EducationModalContent handleUpdate={handleEducationUpdate}/>    
+                        </Paper>
+                        </Grid>
+                    </Grid>
                 </Fade>
             </Modal>
         </Container>
