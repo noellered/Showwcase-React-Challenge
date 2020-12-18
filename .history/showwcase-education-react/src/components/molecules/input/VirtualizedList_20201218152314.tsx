@@ -92,6 +92,18 @@ function useResetCache(data: any) {
 
 const VirtualizedList:FunctionComponent<{handleSelect: any, optionsList: string[]}>= ({ handleSelect, optionsList }) => {
 
+    const [institutionList, setInstitutionList] = useState<string[]>([]);
+
+    const getInstitutions = () => {
+        fetch(`http://universities.hipolabs.com/search`)
+        .then((res: any) => res.json()
+        .then((JSON) => setInstitutionList(JSON.map((item)=>item['name']))));
+    }
+
+    // Get institutions list on component mount
+    useEffect( () => {
+        getInstitutions()
+    }, []);
 
     const renderGroup = (params: AutocompleteRenderGroupParams) => [
         <ListSubheader key={params.key} component="div">

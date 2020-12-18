@@ -93,7 +93,7 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
                 }}>
                 <Fade in={open}>
                     <Paper className={classes.modalPaper} variant="outlined">
-                        <EducationModalContent handleUpdate={handleEducationUpdate} autocompleteList={institutionList}/>    
+                        <EducationModalContent handleUpdate={handleEducationUpdate} autocompleteList={institutitonsList}/>    
                     </Paper>
                 </Fade>
             </Modal>

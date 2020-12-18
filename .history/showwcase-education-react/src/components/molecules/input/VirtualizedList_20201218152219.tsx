@@ -90,8 +90,16 @@ function useResetCache(data: any) {
   });
 
 
-const VirtualizedList:FunctionComponent<{handleSelect: any, optionsList: string[]}>= ({ handleSelect, optionsList }) => {
+const VirtualizedList:FunctionComponent<{handleSelect: any}>= ({ handleSelect, institutionsList }) => {
 
+    const [institutionList, setInstitutionList] = useState<string[]>([]);
+
+    
+
+    // Get institutions list on component mount
+    useEffect( () => {
+        getInstitutions()
+    }, []);
 
     const renderGroup = (params: AutocompleteRenderGroupParams) => [
         <ListSubheader key={params.key} component="div">
@@ -107,7 +115,7 @@ const VirtualizedList:FunctionComponent<{handleSelect: any, optionsList: string[
     return(
         <Autocomplete 
             id="institutions-list" 
-            options={optionsList} 
+            options={institutionList} 
             freeSolo 
             renderGroup={renderGroup}
             renderInput={(params)=>(

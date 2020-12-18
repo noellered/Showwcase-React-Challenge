@@ -61,7 +61,7 @@ const EducationModalContent:FunctionComponent<{handleUpdate: any, autocompleteLi
             <Typography variant="h6" color="primary">Add New Education</Typography>
             <form onSubmit={handleSubmit}>
 
-                <VirtualizedList handleSelect={handleInputChange} optionsList={autocompleteList}/>
+                <VirtualizedList handleSelect={handleInputChange} optionsList={institutionList}/>
 
                 <Grid container lg={12} className={classes.inputGroup}>
                     <Grid item>

@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useState, useEffect} from 'react';
+import React, {FunctionComponent, useState} from 'react';
 import EducationSidebar from '../../molecules/education/SideBar';
 import EducationList from '../education/List';
 import EducationModalContent from '../education/ModalContent';
@@ -93,7 +93,7 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
                 }}>
                 <Fade in={open}>
                     <Paper className={classes.modalPaper} variant="outlined">
-                        <EducationModalContent handleUpdate={handleEducationUpdate} autocompleteList={institutionList}/>    
+                        <EducationModalContent handleUpdate={handleEducationUpdate}/>    
                     </Paper>
                 </Fade>
             </Modal>

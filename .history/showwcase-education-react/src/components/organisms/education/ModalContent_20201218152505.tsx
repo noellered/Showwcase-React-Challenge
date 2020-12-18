@@ -10,7 +10,7 @@ Contains form for creating a new education experience
 On submission, sends information to Main Education page
 */
 
-const EducationModalContent:FunctionComponent<{handleUpdate: any, autocompleteList: string[] }>= ({ handleUpdate, autocompleteList }) => {
+const EducationModalContent:FunctionComponent<{handleUpdate: any }>= ({ handleUpdate }) => {
     const classes = useStyles();
     const [institution, setInstitution] = useState<string>('');
     const [degree, setDegree] = useState<string>('');
@@ -61,7 +61,7 @@ const EducationModalContent:FunctionComponent<{handleUpdate: any, autocompleteLi
             <Typography variant="h6" color="primary">Add New Education</Typography>
             <form onSubmit={handleSubmit}>
 
-                <VirtualizedList handleSelect={handleInputChange} optionsList={autocompleteList}/>
+                <VirtualizedList handleSelect={handleInputChange} optionsList={institutionList}/>
 
                 <Grid container lg={12} className={classes.inputGroup}>
                     <Grid item>
