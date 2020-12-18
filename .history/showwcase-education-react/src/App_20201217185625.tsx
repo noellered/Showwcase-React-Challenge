@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import Home from './components/organisms/pages/Home';
-import Main from './components/organisms/pages/Main';
+import Home from './components/Home';
+import Main from './components/Main';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import './App.css';
 
