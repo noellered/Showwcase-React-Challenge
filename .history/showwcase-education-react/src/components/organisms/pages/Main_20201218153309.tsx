@@ -19,14 +19,14 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
     const [education, setEducation] = useState<object[]>([]);
     const [institutionList, setInstitutionList] = useState<string[]>([]);
 
-    const getInstitutions = async () => {
-        await fetch(`https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json`)
+    const getInstitutions = () => {
+        fetch(`http://universities.hipolabs.com/search`)
         .then((res: any) => res.json()
         .then((JSON) => setInstitutionList(JSON.map((item)=>item['name']))));
     }
 
     // Get institutions list on component mount
-    useEffect( () => {
+    useEffect( async () => {
         getInstitutions()
     }, []);
 
