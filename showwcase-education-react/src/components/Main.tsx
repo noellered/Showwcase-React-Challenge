@@ -14,7 +14,43 @@ import { pageStyles } from './pageStyles';
 const Main:FunctionComponent<{name: string}> = ({name}) => {
     const classes = pageStyles();
     const [open, setOpen] = useState<boolean>(false);
-    const [education, setEducation] = useState<object[]>([]);
+    const [education, setEducation] = useState<object[]>([
+        {
+            degree: "MFA.",
+            description: "",
+            end: {month: 11, year: 2020},
+            fieldOfStudy: "Being Cool",
+            institution: "Triton University",
+            start: {month: 11, year: 2020}
+        },
+        {
+            degree: "M.Sc.",
+            description: "",
+            end: {month: 11, year: 2020},
+            fieldOfStudy: "Biology of Aliens",
+            institution: "Roswell University",
+            start: {month: 11, year: 2020}
+        },
+        {
+            degree: "B.S.",
+            description: "I learned things, and stuff. Then I learned how to be a pirate. Arrrr, matey.",
+            end: {month: 11, year: 2020},
+            fieldOfStudy: "Pirate Studies",
+            institution: "Somalia University",
+            start: {month: 11, year: 2020}
+        },
+        {
+            degree: "B.A.",
+            description: "",
+            end: {month: 11, year: 2020},
+            fieldOfStudy: "Home Economics",
+            institution: "University of Bakersfield",
+            start: {month: 11, year: 2020}
+        },
+    ]);
+    
+
+    //Modal handlers
 
     const handleOpen = () => {
         setOpen(true);
@@ -25,23 +61,37 @@ const Main:FunctionComponent<{name: string}> = ({name}) => {
     }
 
     const handleEducationUpdate = (newEducation) => {
-        setEducation(education.concat(newEducation))
+        setEducation(education => [newEducation, ...education]) //prepend new education item to education list
         handleClose();
     }
 
     return(
         <Container>
             <h4>Welcome to {name}'s education page.</h4>
-            <Button className={classes.button} type="button" onClick={handleOpen}>Add New Education</Button>            
+            <Button 
+                className={classes.button} 
+                variant="contained" 
+                color="primary" 
+                type="button" 
+                onClick={handleOpen}
+                >
+                Add New Education
+            </Button>            
             <Grid container>
                 <Grid item xs={12} lg={3}>
-                    <EducationSidebar list={education}/> 
+                    <Paper className={classes.paper}>
+                        <EducationSidebar list={education}/> 
+                    </Paper>
                 </Grid>
                 <Grid item xs={12} lg={9}>
-                    <EducationList list={education}/>
+                    <Paper className={classes.paper}>
+                        <EducationList list={education}/>
+                    </Paper>
                 </Grid>
             </Grid>
-            <Modal aria-labelledby="add-education"
+            <Modal 
+                className={classes.modal} 
+                aria-labelledby="add-education"
                 aria-describedby="add-education-modal"
                 open={open}
                 onClose={handleClose}

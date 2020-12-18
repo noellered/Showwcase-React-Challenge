@@ -1,12 +1,15 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import Autocomplete, { AutocompleteRenderGroupParams } from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Typography from '@material-ui/core/Typography';
 import { VariableSizeList, ListChildComponentProps } from 'react-window';
 import MonthPicker from '../pickers/MonthPicker';
 import YearPicker from '../pickers/YearPicker';
+import { useStyles } from './styles';
 
 
 //Virtualize institution list for more efficient rendering performance
@@ -90,9 +93,9 @@ function useResetCache(data: any) {
 
 
 
-
 //Add Education Modal Content
 const EducationModalContent:FunctionComponent<{handleUpdate: any}>= ({ handleUpdate }) => {
+    const classes = useStyles();
     const [institutionList, setInstitutionList] = useState<string[]>([]);
     const [institution, setInstitution] = useState<string>('');
     const [degree, setDegree] = useState<string>('');
@@ -143,8 +146,8 @@ const EducationModalContent:FunctionComponent<{handleUpdate: any}>= ({ handleUpd
 
 
     return(
-        <div>
-            <h2>Add New Education</h2>
+        <div className={classes.modalContent}>
+            <Typography variant="h6" color="primary">Add New Education</Typography>
             <form onSubmit={handleSubmit}>
                 <Autocomplete 
                 id="institutions-list" 
@@ -152,7 +155,7 @@ const EducationModalContent:FunctionComponent<{handleUpdate: any}>= ({ handleUpd
                 freeSolo 
                 renderGroup={renderGroup}
                 renderInput={(params)=>(
-                    <TextField {...params} label="Enter your institution" margin="normal" variant="outlined" required/>
+                    <TextField {...params} label="Institution" margin="normal" variant="outlined" required/>
                 )}
                 renderOption={(option) => <p>{option}</p>}
                 ListboxComponent={ListboxComponent as React.ComponentType<React.HTMLAttributes<HTMLElement>>}
@@ -160,17 +163,16 @@ const EducationModalContent:FunctionComponent<{handleUpdate: any}>= ({ handleUpd
                 autoSelect={true}
                 onInputChange={handleInputChange}
                 />
-                <TextField label="Degree" variant="outlined" onChange={(e)=> setDegree(e.target.value)} required/>
-                <TextField label="Field of Study" variant="outlined" onChange={(e)=> setFieldOfStudy(e.target.value)}/>
+                <TextField label="Degree Level (B.A., M.Sc., etc.)" variant="outlined" onChange={(e)=> setDegree(e.target.value)} required/>
+                <TextField label="Field of Study" variant="outlined" onChange={(e)=> setFieldOfStudy(e.target.value)} required/>
                 <TextField multiline fullWidth rows={2} variant="outlined" label="Description" onChange={(e)=> setDescription(e.target.value)}/>
-                
                 <div style={{display: 'flex'}}>
                     <MonthPicker label="Start Month" id="startMonth" onChange={(e)=> setStart({...start, month: e.target.value})}/>
-                    <MonthPicker label="End Month" id="endMonth" onChange={(e)=> setEnd({...end, month: e.target.value})}/>
                     <YearPicker label="Start Year" id="startYear" onChange={(e)=> setStart({...start, year: e.target.value})}/>
+                    <MonthPicker label="End Month" id="endMonth" onChange={(e)=> setEnd({...end, month: e.target.value})}/>
                     <YearPicker label="End Year (or expected)" id="endYear" onChange={(e)=> setEnd({...end, year: e.target.value})}/>
                 </div>
-                <button type="submit">Save</button>
+                <Button variant="contained" type="submit" >Save</Button>
             </form>
         </div>
     )
