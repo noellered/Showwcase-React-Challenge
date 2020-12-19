@@ -1,6 +1,6 @@
 # Showwcase Developer Challenge
 
-You can view the site live [here](https://education-showwcase.netlify.app/), or clone the repo and run it locally.
+You can [view the site live](https://education-showwcase.netlify.app/), or clone the repo and run it locally.
 
 This project was created for the [Showwcase](https://www.showwcase.com/) developer challenge.
 
