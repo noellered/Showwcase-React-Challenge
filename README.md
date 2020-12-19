@@ -1,8 +1,8 @@
 # Showwcase Developer Challenge
 
-This project was created for the [Showwcase](https://www.showwcase.com/) developer challenge.
-You can view it live [here](https://education-showwcase.netlify.app/), or clone the repo and run it locally using "npm start".
+You can view the site live [here](https://education-showwcase.netlify.app/), or clone the repo and run it locally.
 
+This project was created for the [Showwcase](https://www.showwcase.com/) developer challenge.
 
 ## Methods and Technologies
 - TypeScript
