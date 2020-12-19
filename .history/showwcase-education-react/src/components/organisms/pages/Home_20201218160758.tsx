@@ -35,8 +35,8 @@ const Home:FunctionComponent<{setName?: any}> = ({setName}) => {
                     <form onSubmit={handleSubmit}>
                         <TextField placeholder="Your name" variant="outlined" onChange={(e) => setUserInput(e.target.value)} required />
                         <Grid item xs={12}>
-                            <Button className={classes.button} size="large" variant="contained" color="primary" type="submit">Enter</Button>
-                        </Grid>
+                <Button className={classes.button} size="large" variant="contained" color="primary" type="submit">Enter</Button>
+            </Grid>
                     </form>
                 </Grid>
             

@@ -34,9 +34,7 @@ const Home:FunctionComponent<{setName?: any}> = ({setName}) => {
                 <Grid item xs={12}>
                     <form onSubmit={handleSubmit}>
                         <TextField placeholder="Your name" variant="outlined" onChange={(e) => setUserInput(e.target.value)} required />
-                        <Grid item xs={12}>
-                            <Button className={classes.button} size="large" variant="contained" color="primary" type="submit">Enter</Button>
-                        </Grid>
+                    
                     </form>
                 </Grid>
             

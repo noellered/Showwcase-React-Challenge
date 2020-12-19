@@ -30,7 +30,7 @@ export const pageStyles = makeStyles({
         height: 48,
         padding: '0 30px',
         marginLeft: '1rem',
-        marginTop: '1rem',
+        marginTop: '1rem'
         '&:hover': {
             backgroundImage: 'linear-gradient(90deg, rgba(81,53,196,1) 0%, rgba(91,110,238,1) 100%)',
             borderColor: '#0062cc',
