@@ -6,7 +6,6 @@ export const pageStyles = makeStyles({
         margin: 'auto',
         marginTop: '4rem',
         minHeight: '70vh',
-        overflow: 'auto',
         "&:focus": {
             outline: "none"
         },

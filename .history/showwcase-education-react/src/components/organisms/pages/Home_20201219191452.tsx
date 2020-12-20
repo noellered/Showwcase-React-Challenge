@@ -10,7 +10,7 @@ Input asks user for name
 If name is entered, renders Main page using user's name
 */
 
-const Home:FunctionComponent<{setName: (name) => void }> = ({setName}) => {
+const Home:FunctionComponent<{setName?: (name) => string )}> = ({setName}) => {
     const classes = pageStyles();
     const [userInput, setUserInput] = useState('')
 

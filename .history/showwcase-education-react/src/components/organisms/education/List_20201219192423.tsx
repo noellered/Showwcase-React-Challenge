@@ -9,12 +9,9 @@ Renders a detailed list of all education experiences
 
 */
 
-interface ListProps {
-    list: object[],
-    buttonHandler: () => void
-}
+interface ListProps
 
-const EducationList:FunctionComponent<ListProps> = ({ list, buttonHandler }) => {
+const EducationList:FunctionComponent<{list: object[], buttonHandler: any}> = ({ list, buttonHandler }) => {
     const classes = useStyles()
 
     const handleClick = () => {

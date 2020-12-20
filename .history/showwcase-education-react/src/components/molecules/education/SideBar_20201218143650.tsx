@@ -8,12 +8,7 @@ EDUCATION SIDEBAR
 Displays list of all education experiences in reverse order 
 */
 
-interface SidebarProps {
-    list: object[],
-    buttonHandler: () => void
-}
-
-const EducationSidebar:FunctionComponent<SidebarProps> = ({ list, buttonHandler }) => {
+const EducationSidebar:FunctionComponent<{list: object[], buttonHandler: any}> = ({ list, buttonHandler }) => {
     const classes = useStyles();
 
     const handleClick = () => {

@@ -14,7 +14,7 @@ Sends selected date up to parent component
 
 interface DatePickerGroupProps {
     label: string,
-    onChange: (arg) => void
+    onChange: (state) => void
 }
 
 const DatePickerGroup:FunctionComponent<DatePickerGroupProps> = ({ label, onChange }) => {

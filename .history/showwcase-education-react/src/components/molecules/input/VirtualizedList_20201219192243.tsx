@@ -91,7 +91,7 @@ function useResetCache(data: any) {
 
 
 interface ListProps {
-  handleSelect: (arg) => void,
+  handleSelect: (val) => void,
   optionsList: string[]
 }  
 

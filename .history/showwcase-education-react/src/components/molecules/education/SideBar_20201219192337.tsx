@@ -13,7 +13,7 @@ interface SidebarProps {
     buttonHandler: () => void
 }
 
-const EducationSidebar:FunctionComponent<SidebarProps> = ({ list, buttonHandler }) => {
+const EducationSidebar:FunctionComponent<{list: object[], buttonHandler: any}> = ({ list, buttonHandler }) => {
     const classes = useStyles();
 
     const handleClick = () => {

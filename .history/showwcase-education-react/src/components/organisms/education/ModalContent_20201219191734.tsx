@@ -11,7 +11,7 @@ On submission, sends information to Main Education page
 */
 
 interface EducationModalProps {
-    handleUpdate: (arg) => void,
+    handleUpdate: (newEducation) => object,
     autocompleteList: string[]
 }
 

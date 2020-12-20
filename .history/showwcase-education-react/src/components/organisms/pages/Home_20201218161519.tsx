@@ -10,7 +10,7 @@ Input asks user for name
 If name is entered, renders Main page using user's name
 */
 
-const Home:FunctionComponent<{setName: (name) => void }> = ({setName}) => {
+const Home:FunctionComponent<{setName?: any}> = ({setName}) => {
     const classes = pageStyles();
     const [userInput, setUserInput] = useState('')
 
@@ -33,10 +33,12 @@ const Home:FunctionComponent<{setName: (name) => void }> = ({setName}) => {
         
                 <Grid item xs={12}>
                     <form onSubmit={handleSubmit}>
+                        <Grid item>
                         <TextField placeholder="Your name" variant="outlined" onChange={(e) => setUserInput(e.target.value)} required />
-                        <Box mt={2}>
+                        </Grid>
+                        <Grid item xs={12}>
                             <Button className={classes.button} size="large" variant="contained" color="primary" type="submit">Enter</Button>
-                        </Box>
+                        </Grid>
                     </form>
                 </Grid>
             

@@ -6,7 +6,6 @@ export const pageStyles = makeStyles({
         margin: 'auto',
         marginTop: '4rem',
         minHeight: '70vh',
-        overflow: 'auto',
         "&:focus": {
             outline: "none"
         },
@@ -30,6 +29,7 @@ export const pageStyles = makeStyles({
         color: 'white',
         height: 48,
         padding: '0 30px',
+        marginTop: '1rem',
         '&:hover': {
             backgroundImage: 'linear-gradient(90deg, rgba(81,53,196,1) 0%, rgba(91,110,238,1) 100%)',
             borderColor: '#0062cc',

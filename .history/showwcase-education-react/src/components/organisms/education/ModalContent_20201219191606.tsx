@@ -10,12 +10,9 @@ Contains form for creating a new education experience
 On submission, sends information to Main Education page
 */
 
-interface EducationModalProps {
-    handleUpdate: (arg) => void,
-    autocompleteList: string[]
-}
 
-const EducationModalContent:FunctionComponent<EducationModalProps>= ({ handleUpdate, autocompleteList }) => {
+
+const EducationModalContent:FunctionComponent<{handleUpdate: any, autocompleteList: string[] }>= ({ handleUpdate, autocompleteList }) => {
     const classes = useStyles();
     const [institution, setInstitution] = useState<string>('');
     const [degree, setDegree] = useState<string>('');

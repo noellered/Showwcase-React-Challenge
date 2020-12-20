@@ -14,7 +14,7 @@ interface ListProps {
     buttonHandler: () => void
 }
 
-const EducationList:FunctionComponent<ListProps> = ({ list, buttonHandler }) => {
+const EducationList:FunctionComponent<{list: object[], buttonHandler: any}> = ({ list, buttonHandler }) => {
     const classes = useStyles()
 
     const handleClick = () => {

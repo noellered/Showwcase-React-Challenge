@@ -90,12 +90,7 @@ function useResetCache(data: any) {
   });
 
 
-interface ListProps {
-  handleSelect: (arg) => void,
-  optionsList: string[]
-}  
-
-const VirtualizedList:FunctionComponent<ListProps>= ({ handleSelect, optionsList }) => {
+const VirtualizedList:FunctionComponent<{handleSelect: any, optionsList: string[]}>= ({ handleSelect, optionsList }) => {
 
 
     const renderGroup = (params: AutocompleteRenderGroupParams) => [
